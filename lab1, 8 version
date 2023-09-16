@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Вкажіть суму кредиту: ");
+        float credit = sc.nextFloat();
+
+        double annualInterestRate = 3.14;
+
+        double monthlyInterestRate = annualInterestRate / 12.0 / 100.0;
+        int numberOfPayments = 36; 
+        
+        double loanAmount = credit;
+
+        double monthlyPayment = loanAmount * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) / (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
+
+        double cost = monthlyPayment * numberOfPayments;
+
+        System.out.println("Щомісячний платіж: " + monthlyPayment + " грн");
+        System.out.println("Загальні витрати клієнта: " + cost + " грн");
+    }
+}
